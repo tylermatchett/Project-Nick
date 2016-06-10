@@ -5,10 +5,10 @@ using InControl;
 public enum CharacterState
 {
 	idle,
-	moving = 1,
-	blocking = 2,
-	punching = 4,
-	kicking = 8
+	moving,
+	blocking,
+	punching,
+	kicking
 };
 
 public class CharacterManager : MonoBehaviour
@@ -49,7 +49,8 @@ public class CharacterManager : MonoBehaviour
 		else if (inputDevice.Action1)
 		{
 			//Secret fourth button
-		}else if(inputDevice.LeftStickX > 0.3 && state == (CharacterState.idle | CharacterState.moving))
+		}
+		if (inputDevice.LeftStickX > 0.3)
 		{
 			state = CharacterState.moving;
 		}
