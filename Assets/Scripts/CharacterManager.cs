@@ -5,19 +5,19 @@ using InControl;
 public enum CharacterState
 {
 	idle,
-	moving,
-	blocking,
-	punching,
-	kicking
+	moving = 1,
+	blocking = 2,
+	punching = 4,
+	kicking = 8
 };
 
 public class CharacterManager : MonoBehaviour
 {
 	public float health;
-	public static float moveSpeed;
-	public static float kickDamage;
-	public static float punchDamage;
-	public static float blockReduction;
+	public float moveSpeed;
+	public float kickDamage;
+	public float punchDamage;
+	public float blockReduction;
 	public CharacterState state = CharacterState.idle;
 
 	
@@ -50,8 +50,7 @@ public class CharacterManager : MonoBehaviour
 		else if (inputDevice.Action1)
 		{
 			//Secret fourth button
-		}
-		if (inputDevice.LeftStickX > 0.3)
+		}else if(inputDevice.LeftStickX > 0.3 && state == (CharacterState.idle | CharacterState.moving))
 		{
 			state = CharacterState.moving;
 		}
