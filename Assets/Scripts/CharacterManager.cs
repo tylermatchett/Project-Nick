@@ -13,13 +13,12 @@ public enum CharacterState
 
 public class CharacterManager : MonoBehaviour
 {
-	public float health;
 	public float moveSpeed;
 	public float kickDamage;
 	public float punchDamage;
 	public float blockReduction;
 	public CharacterState state = CharacterState.idle;
-
+	
 	
 
 
