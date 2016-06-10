@@ -30,8 +30,6 @@ public class Player {
 	public bool Ready {
 		get { return ready; }
 	}
-	
-	// Ready Selection Save
 	public void IsReady() {
 		ready = true;
 	}

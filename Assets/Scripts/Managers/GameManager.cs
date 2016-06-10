@@ -23,14 +23,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	//public List<CharacterSelectUI> CharacterSelectUIList = new List<CharacterSelectUI>();
-
 	public List<Player> Players = new List<Player>();
 	List<InputDevice> BoundDevices = new List<InputDevice>();
 	bool[] PlayerSlots = new bool[]{ false, false, false, false };
 
 	void Start() {
-
+		Debug.Log("[GameManager] Start");
 
 		InputManager.OnDeviceAttached += inputDevice => DeviceAttached(inputDevice);
 		InputManager.OnDeviceDetached += inputDevice => DeviceDetached(inputDevice);
@@ -47,7 +45,6 @@ public class GameManager : MonoBehaviour {
 					Player NewPlayer = new Player(GetNextPlayerIndex(), device);
 					// Set the new player to the UI stuff and game manager
 					Players.Add(NewPlayer);
-					//CharacterSelectUIList[NewPlayer.ID].AssignPlayer(NewPlayer);
 
 					Debug.Log("New player with an id of " + NewPlayer.ID + " created with " + device + " device.");
 				} else {
@@ -104,7 +101,6 @@ public class GameManager : MonoBehaviour {
 		Player temp = GetPlayerIdWithDevice(device);
 		if ( temp != null ) {
 			PlayerSlots[temp.ID] = false;
-			//CharacterSelectUIList[temp.ID].UnassignPlayer();
 		}
 	}
 
