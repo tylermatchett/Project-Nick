@@ -19,7 +19,7 @@ public class CharacterManager : MonoBehaviour
 	public float blockReduction;
 	public CharacterState state = CharacterState.idle;
 	public Player player;
-	
+	private ActionController actionController;
 
 
 	//private ActionController;
@@ -37,19 +37,22 @@ public class CharacterManager : MonoBehaviour
 		if (inputDevice.Action1)
 		{
 			state = CharacterState.punching;
+			//actionController
     }
-		else if(inputDevice.Action1)
-		{
-			state = CharacterState.blocking;
-		}
-		else if (inputDevice.Action1)
+		else if(inputDevice.Action2)
 		{
 			state = CharacterState.kicking;
 		}
-		else if (inputDevice.Action1)
+		else if (inputDevice.Action3)
+		{
+			state = CharacterState.blocking;
+		}
+/*
+		else if (inputDevice.Action4)
 		{
 			//Secret fourth button
 		}
+//*/
 		if (inputDevice.LeftStickX > 0.3)
 		{
 			state = CharacterState.moving;
