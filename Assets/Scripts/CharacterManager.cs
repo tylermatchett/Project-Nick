@@ -18,7 +18,7 @@ public class CharacterManager : MonoBehaviour
 	public float punchDamage;
 	public float blockReduction;
 	public CharacterState state = CharacterState.idle;
-	
+	public Player player;
 	
 
 
@@ -33,7 +33,7 @@ public class CharacterManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		var inputDevice = InputManager.ActiveDevice;
+		var inputDevice = player.Device;
 		if (inputDevice.Action1)
 		{
 			state = CharacterState.punching;
