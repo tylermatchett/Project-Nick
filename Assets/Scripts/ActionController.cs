@@ -31,4 +31,24 @@ public class ActionController : MonoBehaviour {
         }
         
     }
+    public void Punch()
+    {
+
+    }
+    public void Kick()
+    {
+
+    }
+    public void Block()
+    {
+
+    }
+    public void Jump()
+    {
+
+    }
+    public void Duck()
+    {
+
+    }
 }
