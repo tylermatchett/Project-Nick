@@ -9,6 +9,8 @@ public class Player {
 	bool aicontrolled = false;
 	bool ready = false;
 
+	public float Health = 100f;
+
 	public Player(int id, InputDevice device) {
 		// Load in the weapon and abilities data
 		this.id = id;
