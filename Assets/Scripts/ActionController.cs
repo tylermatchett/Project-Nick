@@ -9,21 +9,25 @@ public class ActionController : MonoBehaviour {
     {
         if(target.gameObject.tag == "Player")
         {
-            if(characterManager.state == characterState.Attack)
+            if(characterManager.state == CharacterState.punching)
             {
-             target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.damage);
+             target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.punchDamage);
+            }
+            else if(characterManager.state == CharacterState.kicking)
+            {
+                target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.kickDamage);
             }
         }
     }
     public void ApplyDamage(float damage)
     {
-        if(characterManager.state == characterState.Block)
+        if(characterManager.state == CharacterState.blocking)
         {
-            characterManager.hp -= damage * characterManager.damageMod;
+            characterManager.health -= damage * characterManager.blockReduction;
         }
         else
         {
-            characterManager.hp -= damage;
+            characterManager.health -= damage;
         }
         
     }

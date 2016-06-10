@@ -15,9 +15,9 @@ public class CharacterManager : MonoBehaviour
 {
 	public float health;
 	public static float moveSpeed;
-	public static float kickDamage;
-	public static float punchDamage;
-	public static float blockReduction;
+	public float kickDamage;
+	public float punchDamage;
+	public float blockReduction;
 	public CharacterState state = CharacterState.idle;
 
 	
