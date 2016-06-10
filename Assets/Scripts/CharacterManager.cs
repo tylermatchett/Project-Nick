@@ -14,10 +14,10 @@ public enum CharacterState
 public class CharacterManager : MonoBehaviour
 {
 	public float health;
-	public float moveSpeed;
-	public float kickDamage;
-	public float punchDamage;
-	public float blockReduction;
+	public static float moveSpeed;
+	public static float kickDamage;
+	public static float punchDamage;
+	public static float blockReduction;
 	public CharacterState state = CharacterState.idle;
 
 	
@@ -34,6 +34,26 @@ public class CharacterManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
-	}
+		var inputDevice = InputManager.ActiveDevice;
+		if (inputDevice.Action1)
+		{
+			state = CharacterState.punching;
+    }
+		else if(inputDevice.Action1)
+		{
+			state = CharacterState.blocking;
+		}
+		else if (inputDevice.Action1)
+		{
+			state = CharacterState.kicking;
+		}
+		else if (inputDevice.Action1)
+		{
+			//Secret fourth button
+		}
+		if (inputDevice.LeftStickX > 0.3)
+		{
+			state = CharacterState.moving;
+		}
+  }
 }
