@@ -23,12 +23,32 @@ public class ActionController : MonoBehaviour {
     {
         if(characterManager.state == CharacterState.blocking)
         {
-            characterManager.health -= damage * characterManager.blockReduction;
+            characterManager.player.Health -= damage * characterManager.blockReduction;
         }
         else
         {
-            characterManager.health -= damage;
+            characterManager.player.Health -= damage;
         }
         
+    }
+    public void Punch()
+    {
+
+    }
+    public void Kick()
+    {
+
+    }
+    public void Block()
+    {
+
+    }
+    public void Jump()
+    {
+
+    }
+    public void Duck()
+    {
+
     }
 }
