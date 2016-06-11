@@ -105,6 +105,7 @@ public class CharacterManager : MonoBehaviour
 				&& (Mathf.Abs(Vector3.Distance(transform.position, otherPlayer.transform.position)) > 2f
 				|| leftPlayer && player.Device.LeftStickX.Value < 0
 				|| !leftPlayer && player.Device.LeftStickX.Value > 0))
+//				&& (leftPlayer && player.Device.LeftStickX.Value > 0) && transform.position.x > 3)
 			{
 				state = CharacterState.moving;
 				direction = new Vector2(player.Device.LeftStickX.Value, 0f);
