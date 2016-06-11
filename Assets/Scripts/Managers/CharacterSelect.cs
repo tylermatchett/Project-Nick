@@ -34,7 +34,7 @@ public class CharacterSelect : MonoBehaviour {
 
 					Player NewPlayer = new Player(GetNextPlayerIndex(), device);
 					// Set the new player to the UI stuff and game manager
-					NewPlayer.IsReady();
+					//NewPlayer.IsReady();
 					GameManager.Instance.Players.Add(NewPlayer);
 					
 				} else {
@@ -42,20 +42,25 @@ public class CharacterSelect : MonoBehaviour {
 				}
 			} else {
 				Debug.Log("Device already bound.");
+				GetPlayerIdWithDevice(device).IsReady();
 			}
 		} else if ( device.Action2.WasPressed ) {
-			// Remove player from that location
-			Player plr = null;
-			foreach ( Player p in GameManager.Instance.Players ) {
-				if ( p.Device == device ) {
-					plr = p;
+			if ( GetPlayerIdWithDevice(device).Ready )
+				GetPlayerIdWithDevice(device).NotReady();
+			else {
+				// Remove player from that location
+				Player plr = null;
+				foreach ( Player p in GameManager.Instance.Players ) {
+					if ( p.Device == device ) {
+						plr = p;
+					}
 				}
+				GameManager.Instance.Players.Remove(plr);
+
+
+				// Unbind the device
+				UnbindDevice(device);
 			}
-			GameManager.Instance.Players.Remove(plr);
-
-
-			// Unbind the device
-			UnbindDevice(device);
 			Debug.Log("Action 2");
 		} else if ( device.Action3.WasPressed ) {
 			GetPlayerIdWithDevice(device).isCat = !GetPlayerIdWithDevice(device).isCat;
