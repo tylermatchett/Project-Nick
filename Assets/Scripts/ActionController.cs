@@ -3,11 +3,12 @@ using System.Collections;
 
 public class ActionController : MonoBehaviour {
 
+    public Animator anim;
     private CharacterManager characterManager;
 
     void OnCollisionEnter2D(Collision2D target)
     {
-        if(target.gameObject.tag == "Player")
+        if(target.gameObject.tag == "PlayerHitBox")
         {
             if(characterManager.state == CharacterState.punching)
             {
