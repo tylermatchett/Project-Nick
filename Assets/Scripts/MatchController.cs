@@ -7,6 +7,11 @@ using UnityEngine.UI;
 public class MatchController : MonoBehaviour {
 
     private CharacterManager characterManager;
+    public Image firstIcon1;
+    public Image firstIcon2;
+    public Image secondIcon1;
+    public Image secondIcon2;
+    public Sprite swapIcon;
     public Text winner;
     public GameObject KO;
 
@@ -26,7 +31,10 @@ public class MatchController : MonoBehaviour {
 		for ( int i = 0; i < goList.Count(); i++ ) {
 			CharacterManager cm = goList[i].GetComponent<CharacterManager>();
 			if ( GameManager.Instance.Players.Count > i && cm != null ) {
-				cm.player = GameManager.Instance.Players[i];
+				if( i == 0 )
+					cm.player = GameManager.Instance.Players[1];
+				else
+					cm.player = GameManager.Instance.Players[0];
 			}
 		}
 
@@ -45,17 +53,19 @@ public class MatchController : MonoBehaviour {
         {
             if( GameManager.Instance.Players[0].Health > GameManager.Instance.Players[1].Health)
             {
-                playerWinner = "Player1 Wins";
-                winner.text = playerWinner;
-                player1win++;
-                KO.SetActive(true);
-            }
-            else
-            {
                 playerWinner = "Player2 Wins";
                 winner.text = playerWinner;
                 player2win++;
                 KO.SetActive(true);
+                round++;
+            }
+            else
+            {
+                playerWinner = "Player1 Wins";
+                winner.text = playerWinner;
+                player1win++;
+                KO.SetActive(true);
+                round++;
             }
 
 			if (OnRoundOver != null)
@@ -68,18 +78,20 @@ public class MatchController : MonoBehaviour {
             {
                 case 0:
 
-                    playerWinner = "Player1 Wins";
-                    winner.text = playerWinner;
-                    player1win++;
-                    KO.SetActive(true);
-                    break;
-
-                case 1:
-
                     playerWinner = "Player2 Wins";
                     winner.text = playerWinner;
                     player2win++;
                     KO.SetActive(true);
+                    round++;
+                    break;
+
+                case 1:
+
+                    playerWinner = "Player1 Wins";
+                    winner.text = playerWinner;
+                    player1win++;
+                    KO.SetActive(true);
+                    round++;
                     break;
             }
             round++;
@@ -100,13 +112,14 @@ public class MatchController : MonoBehaviour {
                 players[i].GetComponent<CharacterManager>().player.Health = 100;
                 if(i < 1)
                 {
-                    players[i].transform.position = new Vector3(-11, -5, players[i].transform.position.z);
+                    players[1].transform.position = new Vector3(-11, -5, players[i].transform.position.z);
                 }
                 else
                 {
-                    players[i].transform.position = new Vector3(10, -5, players[i].transform.position.z);
+                    players[0].transform.position = new Vector3(10, -5, players[i].transform.position.z);
                 }
             }
+			KO.SetActive(false);
         }
        
 	}
