@@ -53,6 +53,7 @@ public class SoundManager : MonoBehaviour {
     {
         Debug.Log("[SoundManager] Start");
 		_instance = this;
+		DontDestroyOnLoad(this.gameObject);
     }
 	
 	// Update is called once per frame
