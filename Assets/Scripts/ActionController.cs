@@ -74,9 +74,9 @@ public class ActionController : MonoBehaviour
 	}
 	public void Block()
 	{
-		anim.speed = 2.5f;
-		anim.Play("Block");
-		blockAnimTimer = 0;
+		//anim.speed = 2.5f;
+		//anim.Play("Block");
+		//blockAnimTimer = 0;
 		//Invoke("animationend", 0.75f / anim.speed);
 	}
 	public void Jump()
