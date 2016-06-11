@@ -8,11 +8,16 @@ public class ActionController : MonoBehaviour
 	public System.Action OnAnimationEnd;
 	public float blockAnimTimer;
 
+	public GameObject effect1;
+	public GameObject effect2;
+	public GameObject effect3;
+
 	void OnTriggerEnter2D(Collider2D target)
 	{
 		Debug.Log("Hit player");
 		if (target.gameObject.tag == "PlayerHitBox")
 		{
+			Destroy((GameObject) Instantiate(effect1, target.transform.position, Quaternion.identity), 0.25f);
 			ActionController ac = target.gameObject.transform.root.GetComponent<ActionController>();
 
 			Debug.Log("Found hit area | ac:  " + ac);
