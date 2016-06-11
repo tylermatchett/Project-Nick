@@ -77,7 +77,7 @@ public class CharacterManager : MonoBehaviour
 			dodgeTimer -= Time.deltaTime;
 
 			if (leftPlayer)
-				direction = new Vector2(-1f, 0f);
+				direction = new Vector2(-3f, 0f);
 			else
 				direction = new Vector2(1f, 0f);
 
