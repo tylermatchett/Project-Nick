@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using InControl;
@@ -8,11 +9,15 @@ public class CharacterSelect : MonoBehaviour {
 	List<InputDevice> BoundDevices = new List<InputDevice>();
 	bool[] PlayerSlots = new bool[]{ false, false };
 
-	void Start () {
+	public Image player1;
+	public Image player2;
 
+	public Color notSelectedColor;
+	public Color selectedColor;
+
+	void Start () {
 		InputManager.OnDeviceAttached += inputDevice => DeviceAttached(inputDevice);
 		InputManager.OnDeviceDetached += inputDevice => DeviceDetached(inputDevice);
-
 	}
 	
 	void Update () {
