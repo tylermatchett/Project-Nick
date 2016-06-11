@@ -5,14 +5,15 @@ public class ActionController : MonoBehaviour {
 
     public Animator anim;
     public CharacterManager characterManager;
+	public System.Action OnAnimationEnd;
 
-    void OnCollisionEnter2D(Collision2D target)
+	void OnCollisionEnter2D(Collision2D target)
     {
         if(target.gameObject.tag == "PlayerHitBox")
         {
             if(characterManager.state == CharacterState.punching)
             {
-             target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.punchDamage);
+				target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.punchDamage);
             }
             else if(characterManager.state == CharacterState.kicking)
             {
@@ -22,6 +23,7 @@ public class ActionController : MonoBehaviour {
     }
     public void ApplyDamage(float damage)
     {
+		Debug.Log("I'm hit broski");
         if(characterManager.state == CharacterState.blocking)
         {
             characterManager.player.Health -= damage * characterManager.blockReduction;
@@ -37,11 +39,13 @@ public class ActionController : MonoBehaviour {
         if(Random.Range(0,2)>0)
         {
             anim.Play("FarPunch");
-        }
+			Invoke("animationend", 0.75f);
+		}
         else
         {
             anim.Play("NearPunch");
-        }
+			Invoke("animationend", 0.75f);
+		}
    
     }
     public void Kick()
@@ -49,23 +53,30 @@ public class ActionController : MonoBehaviour {
         if(Random.Range(0,2)>0)
         {
             anim.Play("FarKick");
-        }
+			Invoke("animationend", 0.75f);
+		}
         else
         {
             anim.Play("NearKick");
-        }
+			Invoke("animationend", 0.75f);
+		}
        
     }
     public void Block()
     {
         anim.Play("Block");
-    }
+		Invoke("animationend", 0.75f);
+	}
     public void Jump()
     {
         anim.Play("Jump");
+		Invoke("animationend", 0.75f);
     }
 
 	void Update() {
-		transform.position += new Vector3(characterManager.direction.x, transform.position.y, transform.position.z) * characterManager.moveSpeed;
+		transform.position += new Vector3(characterManager.direction.x, 0f, 0f) * characterManager.moveSpeed * Time.deltaTime;
+	}
+	void animationend() {
+		OnAnimationEnd();
 	}
 }

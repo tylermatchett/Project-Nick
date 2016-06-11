@@ -18,13 +18,13 @@ public class MatchController : MonoBehaviour {
     {
 		List<GameObject> goList = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
 		for ( int i = 0; i < goList.Count(); i++ ) {
-			Debug.Log("Loop: " + i);
 			CharacterManager cm = goList[i].GetComponent<CharacterManager>();
 			if ( GameManager.Instance.Players.Count > i && cm != null ) {
-				Debug.Log("is CM null: " + (goList[i].GetComponent<CharacterManager>() == null));
 				cm.player = GameManager.Instance.Players[i];
 			}
 		}
+
+
 	}
 	
 	void Update ()
@@ -42,7 +42,8 @@ public class MatchController : MonoBehaviour {
                 playerWinner = "Player2";
             }
 
-            OnRoundOver();
+			if (OnRoundOver != null)
+				OnRoundOver();
         }
 
 	    if(checkRoundOver())

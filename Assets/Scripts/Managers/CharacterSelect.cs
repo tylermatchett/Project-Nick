@@ -31,8 +31,7 @@ public class CharacterSelect : MonoBehaviour {
 					// Set the new player to the UI stuff and game manager
 					NewPlayer.IsReady();
 					GameManager.Instance.Players.Add(NewPlayer);
-
-					Debug.Log("New player with an id of " + NewPlayer.ID + " created with " + device + " device.");
+					
 				} else {
 					Debug.Log("All player slots full");
 				}

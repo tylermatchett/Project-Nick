@@ -16,7 +16,7 @@ public enum CharacterState
 
 public class CharacterManager : MonoBehaviour
 {
-	public float moveSpeed;
+	public float moveSpeed = 5f;
 	public float kickDamage;
 	public float punchDamage;
 	public float blockReduction;
@@ -30,11 +30,11 @@ public class CharacterManager : MonoBehaviour
 	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f;
 	
 	void Start() {
+		actionController.OnAnimationEnd += OnAnimationEnd;
 	}
 
 	void Update ()
 	{
-		Debug.Log("Player is not null: " + (player != null));
 		if (player != null)
 			handleInput();
 
@@ -44,23 +44,28 @@ public class CharacterManager : MonoBehaviour
 		}
   }
 
+	void OnAnimationEnd() {
+		state = CharacterState.idle;
+	}
+
 	private void handleInput()
 	{
-		if ( player.Device.Action1 && state <= CharacterState.blocking)
+		Debug.Log("Player is null: " + (player == null));
+		if ( player.Device.Action3 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.punching;
 			actionController.Punch();
 			unlockTimer = punchTime;
 			actionLock = true;
 		}
-		else if ( player.Device.Action2 && state <= CharacterState.blocking)
+		else if ( player.Device.Action4 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.kicking;
 			actionController.Kick();
 			unlockTimer = kickTime;
 			actionLock = true;
 		}
-		else if ( player.Device.Action3 && state <= CharacterState.blocking)
+		else if ( player.Device.Action1 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.blocking;
 			actionController.Block();
@@ -73,15 +78,16 @@ public class CharacterManager : MonoBehaviour
 		//*/
 		else if (state <= CharacterState.moving)
 		{
-			if ( player.Device.Direction.Vector.magnitude > stickDeadzone)
-			{
+			if (Mathf.Abs(player.Device.LeftStickX.Value) > 0.15f)
 				state = CharacterState.moving;
-				direction = player.Device.Direction.Vector.normalized;
-			}
-			else
+			direction = new Vector2(player.Device.LeftStickX.Value, 0f);
+				//direction = player.Device.Direction.Vector.normalized;
+			
+			/*else
 			{
+				direction = Vector2.zero;
 				state = CharacterState.idle;
-			}
+			}*/
 		}
 	}
 
