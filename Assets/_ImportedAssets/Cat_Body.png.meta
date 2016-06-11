@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: ce1c73d89a603974aaaaa44a9ba10bfc
+timeCreated: 1465603928
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cat_Body_0
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5664899, y: 0.74054986}
+  spriteBorder: {x: 197, y: 593, z: 90, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cat_Body_0
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 595
+        width: 303
+        height: 485
+      alignment: 9
+      pivot: {x: 0.37705857, y: 0.42287093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 188.75125, y: -81.09241}
+        - {x: 188.75125, y: -73.09241}
+        - {x: 159.75125, y: -35.092407}
+        - {x: 154.75125, y: 28.907593}
+        - {x: 133.75125, y: 29.907593}
+        - {x: 149.75125, y: 174.9076}
+        - {x: 129.75125, y: 246.9076}
+        - {x: 105.75125, y: 268.9076}
+        - {x: 82.75125, y: 279.9076}
+        - {x: -25.248749, y: 279.9076}
+        - {x: -53.24875, y: 273.9076}
+        - {x: -75.24875, y: 247.9076}
+        - {x: -84.24875, y: 196.9076}
+        - {x: -70.24875, y: 85.90759}
+        - {x: -89.24875, y: 92.90759}
+        - {x: -114.24875, y: 74.90759}
+        - {x: -114.24875, y: 4.907593}
+        - {x: -112.24875, y: -3.0924072}
+        - {x: -88.24875, y: -14.092407}
+        - {x: -91.24875, y: -103.09241}
+        - {x: -76.24875, y: -90.09241}
+        - {x: -60.24875, y: -75.09241}
+        - {x: -33.24875, y: -40.092407}
+        - {x: -8.248749, y: -95.09241}
+        - {x: 46.75125, y: -147.0924}
+        - {x: 53.75125, y: -145.0924}
+        - {x: 79.75125, y: -157.0924}
+        - {x: 84.75125, y: -203.0924}
+        - {x: 86.75125, y: -205.0924}
+        - {x: 93.75125, y: -205.0924}
+        - {x: 115.75125, y: -121.09241}
+        - {x: 117.75125, y: -71.09241}
+        - {x: 184.75125, y: -81.09241}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
