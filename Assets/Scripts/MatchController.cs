@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class MatchController : MonoBehaviour {
 
     private CharacterManager characterManager;
-    private GameManager gameManager;
 
     private int index = 0;
     public float gameTimer = 60f;
@@ -12,21 +13,22 @@ public class MatchController : MonoBehaviour {
     public int round = 1;
 
     public System.Action OnRoundOver;
-
-	// Use this for initialization
+	
 	void Start ()
     {
-
+		List<GameObject> goList = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
+		for ( int i = 0; i < goList.Count(); i++ ) {
+			goList[i].GetComponent<CharacterManager>().player = GameManager.Instance.Players[i];
+		}
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
         gameTimer -= Time.deltaTime;
 
         if(gameTimer <= 0)
         {
-            if(gameManager.Players[0].Health > gameManager.Players[1].Health)
+            if( GameManager.Instance.Players[0].Health > GameManager.Instance.Players[1].Health)
             {
                 playerWinner = "Player1";
             }
@@ -59,9 +61,9 @@ public class MatchController : MonoBehaviour {
 
     bool checkRoundOver()
     {
-        for(int i = 0; i < gameManager.Players.Count; i++)
+        for(int i = 0; i < GameManager.Instance.Players.Count; i++)
         {
-            if (gameManager.Players[i].Health <= 0)
+            if ( GameManager.Instance.Players[i].Health <= 0)
             {
                 index = i;
                 return (true);
