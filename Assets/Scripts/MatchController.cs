@@ -31,7 +31,10 @@ public class MatchController : MonoBehaviour {
 		for ( int i = 0; i < goList.Count(); i++ ) {
 			CharacterManager cm = goList[i].GetComponent<CharacterManager>();
 			if ( GameManager.Instance.Players.Count > i && cm != null ) {
-				cm.player = GameManager.Instance.Players[i];
+				if( i == 0 )
+					cm.player = GameManager.Instance.Players[1];
+				else
+					cm.player = GameManager.Instance.Players[0];
 			}
 		}
 
@@ -50,17 +53,17 @@ public class MatchController : MonoBehaviour {
         {
             if( GameManager.Instance.Players[0].Health > GameManager.Instance.Players[1].Health)
             {
-                playerWinner = "Player1 Wins";
+                playerWinner = "Player2 Wins";
                 winner.text = playerWinner;
-                player1win++;
+                player2win++;
                 KO.SetActive(true);
                 round++;
             }
             else
             {
-                playerWinner = "Player2 Wins";
+                playerWinner = "Player1 Wins";
                 winner.text = playerWinner;
-                player2win++;
+                player1win++;
                 KO.SetActive(true);
                 round++;
             }
@@ -75,18 +78,18 @@ public class MatchController : MonoBehaviour {
             {
                 case 0:
 
-                    playerWinner = "Player1 Wins";
+                    playerWinner = "Player2 Wins";
                     winner.text = playerWinner;
-                    player1win++;
+                    player2win++;
                     KO.SetActive(true);
                     round++;
                     break;
 
                 case 1:
 
-                    playerWinner = "Player2 Wins";
+                    playerWinner = "Player1 Wins";
                     winner.text = playerWinner;
-                    player2win++;
+                    player1win++;
                     KO.SetActive(true);
                     round++;
                     break;
@@ -109,13 +112,14 @@ public class MatchController : MonoBehaviour {
                 players[i].GetComponent<CharacterManager>().player.Health = 100;
                 if(i < 1)
                 {
-                    players[i].transform.position = new Vector3(-11, -5, players[i].transform.position.z);
+                    players[1].transform.position = new Vector3(-11, -5, players[i].transform.position.z);
                 }
                 else
                 {
-                    players[i].transform.position = new Vector3(10, -5, players[i].transform.position.z);
+                    players[0].transform.position = new Vector3(10, -5, players[i].transform.position.z);
                 }
             }
+			KO.SetActive(false);
         }
        
 	}
