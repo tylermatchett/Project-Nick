@@ -40,28 +40,41 @@ public class ActionController : MonoBehaviour
 		if (characterManager.state == CharacterState.blocking)
 		{
 			characterManager.player.Health -= damage * characterManager.blockReduction;
+            SoundManager.Instance.Play(SoundType.HitBlock);
 		}
 		else
 		{
 			characterManager.player.Health -= damage;
-		}
+            SoundManager.Instance.Play(SoundType.HitContact);
+            if (characterManager.player.isCat == true)
+            {
+                SoundManager.Instance.Play(SoundType.HitCat);
+            }
+            else
+            {
+                SoundManager.Instance.Play(SoundType.HitDog);
+            }
+        }
 
 	}
 	public void Punch()
 	{
-		anim.speed = 1.5f;
+        SoundManager.Instance.Play(SoundType.HitWhoosh);
+        anim.speed = 1.5f;
 		anim.Play("FarPunch");
 		Invoke("animationend", 0.75f/anim.speed);
-	}
+    }
 	public void HeavyPunch()
 	{
-		anim.speed = 0.75f;
+        SoundManager.Instance.Play(SoundType.HitWhoosh);
+        anim.speed = 0.75f;
 		anim.Play("NearPunch");
 		Invoke("animationend", 0.75f/anim.speed);
-	}
+    }
 	public void Kick()
 	{
-		if (Random.Range(0, 2) > 0)
+        SoundManager.Instance.Play(SoundType.HitWhoosh);
+        if (Random.Range(0, 2) > 0)
 		{
 			anim.Play("FarKick");
 		}
