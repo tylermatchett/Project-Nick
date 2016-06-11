@@ -46,6 +46,11 @@ public class SoundManager : MonoBehaviour {
     public AudioClip MenuMusic;
     public AudioClip GameMusic;
     public AudioSource audioSource;
+    public AudioSource audioSource2;
+    public AudioSource audioSource3;
+    public AudioSource audioSource4;
+    public AudioSource audioSource5;
+
     private int shuffleRand = 0;
 
     // Use this for initialization
@@ -77,7 +82,7 @@ public class SoundManager : MonoBehaviour {
                 break;
 
             case SoundType.HitCat:
-                audioSource.clip = HitCat;
+                audioSource3.clip = HitCat;
                 audioSource.Play();
                 break;
 
@@ -87,12 +92,12 @@ public class SoundManager : MonoBehaviour {
                 break;
 
             case SoundType.DeadDog:
-                audioSource.clip = DeadDog;
+                audioSource3.clip = DeadDog;
                 audioSource.Play();
                 break;
 
             case SoundType.DeadCat:
-                audioSource.clip = DeadCat;
+                audioSource3.clip = DeadCat;
                 audioSource.Play();
                 break;
 
@@ -102,7 +107,7 @@ public class SoundManager : MonoBehaviour {
                 break;
 
             case SoundType.TimerTick:
-                audioSource.clip = TimerTick;
+                audioSource4.clip = TimerTick;
                 audioSource.Play();
                 break;
 
@@ -112,12 +117,12 @@ public class SoundManager : MonoBehaviour {
                 break;
 
             case SoundType.MenuMusic:
-                audioSource.clip = MenuMusic;
+                audioSource2.clip = MenuMusic;
                 audioSource.Play();
                 break;
 
             case SoundType.GameMusic:
-                audioSource.clip = GameMusic;
+                audioSource2.clip = GameMusic;
                 audioSource.Play();
                 break;
 
@@ -128,22 +133,22 @@ public class SoundManager : MonoBehaviour {
                 {
                     case 1:
                         audioSource.clip = Shuffle1;
-                        audioSource.Play();
+                        audioSource5.Play();
                         break;
 
                     case 2:
                         audioSource.clip = Shuffle2;
-                        audioSource.Play();
+                        audioSource5.Play();
                         break;
 
                     case 3:
                         audioSource.clip = Shuffle3;
-                        audioSource.Play();
+                        audioSource5.Play();
                         break;
 
                     case 4:
                         audioSource.clip = Shuffle4;
-                        audioSource.Play();
+                        audioSource5.Play();
                         break;
                 }
                 break;
