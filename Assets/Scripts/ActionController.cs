@@ -34,22 +34,34 @@ public class ActionController : MonoBehaviour {
     }
     public void Punch()
     {
-
+        if(Random.Range(0,2)>0)
+        {
+            anim.Play("FarPunch");
+        }
+        else
+        {
+            anim.Play("NearPunch");
+        }
+   
     }
     public void Kick()
     {
-
+        if(Random.Range(0,2)>0)
+        {
+            anim.Play("FarKick");
+        }
+        else
+        {
+            anim.Play("NearKick");
+        }
+       
     }
     public void Block()
     {
-
+        anim.Play("Block");
     }
     public void Jump()
     {
-
-    }
-    public void Duck()
-    {
-
+        anim.Play("Jump");
     }
 }
