@@ -52,6 +52,7 @@ public class SoundManager : MonoBehaviour {
     void Start ()
     {
         Debug.Log("[SoundManager] Start");
+		_instance = this;
     }
 	
 	// Update is called once per frame
