@@ -15,6 +15,9 @@ public class CharacterSelect : MonoBehaviour {
 	public Color notSelectedColor;
 	public Color selectedColor;
 
+	public Text p1Text;
+	public Text p2Text;
+
 	void Start () {
 		InputManager.OnDeviceAttached += inputDevice => DeviceAttached(inputDevice);
 		InputManager.OnDeviceDetached += inputDevice => DeviceDetached(inputDevice);
@@ -36,23 +39,37 @@ public class CharacterSelect : MonoBehaviour {
 					// Set the new player to the UI stuff and game manager
 					//NewPlayer.IsReady();
 					GameManager.Instance.Players.Add(NewPlayer);
-					
+
+					if ( NewPlayer.ID == 0 ) {
+						p1Text.text = "Not Ready";
+					} else {
+						p2Text.text = "Not Ready";
+					}
+
 				} else {
 					Debug.Log("All player slots full");
 				}
 			} else {
 				Debug.Log("Device already bound.");
 				GetPlayerIdWithDevice(device).IsReady();
-				if (GetPlayerIdWithDevice(device).ID == 0)
+				if ( GetPlayerIdWithDevice(device).ID == 0 ) {
 					player1.color = selectedColor;
-				else
+					p1Text.text = "Ready!";
+				} else {
 					player2.color = selectedColor;
-				
+					p2Text.text = "Ready!";
+				}
 			}
 		} else if ( device.Action2.WasPressed ) {
-			if ( GetPlayerIdWithDevice(device).Ready )
+			if ( GetPlayerIdWithDevice(device).Ready ) {
 				GetPlayerIdWithDevice(device).NotReady();
-			else {
+
+				if ( GetPlayerIdWithDevice(device).ID == 0 ) {
+					p1Text.text = "Not Ready";
+				} else {
+					p2Text.text = "Not Ready";
+				}
+			} else {
 				// Remove player from that location
 				Player plr = null;
 				foreach ( Player p in GameManager.Instance.Players ) {
@@ -63,10 +80,13 @@ public class CharacterSelect : MonoBehaviour {
 				GameManager.Instance.Players.Remove(plr);
 
 
-				if ( GetPlayerIdWithDevice(device).ID == 0 )
+				if ( GetPlayerIdWithDevice(device).ID == 0 ) {
 					player1.color = notSelectedColor;
-				else
+					p1Text.text = "Press Start";
+				} else {
 					player2.color = notSelectedColor;
+					p2Text.text = "Press Start";
+				}
 
 				// Unbind the device
 				UnbindDevice(device);
