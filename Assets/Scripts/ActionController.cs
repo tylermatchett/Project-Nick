@@ -9,6 +9,7 @@ public class ActionController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D target)
     {
+		Debug.Log("Hit player");
         if(target.gameObject.tag == "PlayerHitBox")
         {
             if(characterManager.state == CharacterState.punching)

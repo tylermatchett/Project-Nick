@@ -28,9 +28,27 @@ public class CharacterManager : MonoBehaviour
 	private float unlockTimer;
 	private bool actionLock;
 	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f;
+	GameObject otherPlayer;
+	public bool leftPlayer;
 	
 	void Start() {
 		actionController.OnAnimationEnd += OnAnimationEnd;
+
+		//This breaks with more than two players
+		otherPlayer = GameObject.FindGameObjectsWithTag("Player")[0];
+		if(otherPlayer == gameObject)
+		{
+			otherPlayer = GameObject.FindGameObjectsWithTag("Player")[1];
+		}
+
+		if(transform.position.x > otherPlayer.transform.position.x)
+		{
+			leftPlayer = false;
+		}
+		else
+		{
+			leftPlayer = true;
+		}
 	}
 
 	void Update ()
@@ -78,16 +96,24 @@ public class CharacterManager : MonoBehaviour
 		//*/
 		else if (state <= CharacterState.moving)
 		{
-			if (Mathf.Abs(player.Device.LeftStickX.Value) > 0.15f)
+			float moveVal = 0f;
+			if (leftPlayer)
+			{
+				moveVal = 1f;
+			}
+			if (Mathf.Abs(player.Device.LeftStickX.Value) > 0.15f
+				&& (Vector3.Distance(transform.position, otherPlayer.transform.position) > 6f
+				|| leftPlayer && player.Device.LeftStickX.Value < 0
+				|| player.Device.LeftStickX.Value > 0))
+			{
 				state = CharacterState.moving;
-			direction = new Vector2(player.Device.LeftStickX.Value, 0f);
-				//direction = player.Device.Direction.Vector.normalized;
-			
-			/*else
+				direction = new Vector2(player.Device.LeftStickX.Value, 0f);
+			}
+			else
 			{
 				direction = Vector2.zero;
 				state = CharacterState.idle;
-			}*/
+			}
 		}
 	}
 
