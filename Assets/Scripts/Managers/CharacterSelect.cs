@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using InControl;
@@ -8,11 +9,18 @@ public class CharacterSelect : MonoBehaviour {
 	List<InputDevice> BoundDevices = new List<InputDevice>();
 	bool[] PlayerSlots = new bool[]{ false, false };
 
-	void Start () {
+	public Image player1;
+	public Image player2;
 
+	public Color notSelectedColor;
+	public Color selectedColor;
+
+	public Text p1Text;
+	public Text p2Text;
+
+	void Start () {
 		InputManager.OnDeviceAttached += inputDevice => DeviceAttached(inputDevice);
 		InputManager.OnDeviceDetached += inputDevice => DeviceDetached(inputDevice);
-
 	}
 	
 	void Update () {
@@ -29,28 +37,60 @@ public class CharacterSelect : MonoBehaviour {
 
 					Player NewPlayer = new Player(GetNextPlayerIndex(), device);
 					// Set the new player to the UI stuff and game manager
-					NewPlayer.IsReady();
+					//NewPlayer.IsReady();
 					GameManager.Instance.Players.Add(NewPlayer);
-					
+
+					if ( NewPlayer.ID == 0 ) {
+						p1Text.text = "Not Ready";
+					} else {
+						p2Text.text = "Not Ready";
+					}
+
 				} else {
 					Debug.Log("All player slots full");
 				}
 			} else {
 				Debug.Log("Device already bound.");
-			}
-		} else if ( device.Action2.WasPressed ) {
-			// Remove player from that location
-			Player plr = null;
-			foreach ( Player p in GameManager.Instance.Players ) {
-				if ( p.Device == device ) {
-					plr = p;
+				GetPlayerIdWithDevice(device).IsReady();
+				if ( GetPlayerIdWithDevice(device).ID == 0 ) {
+					player1.color = selectedColor;
+					p1Text.text = "Ready!";
+				} else {
+					player2.color = selectedColor;
+					p2Text.text = "Ready!";
 				}
 			}
-			GameManager.Instance.Players.Remove(plr);
+		} else if ( device.Action2.WasPressed ) {
+			if ( GetPlayerIdWithDevice(device).Ready ) {
+				GetPlayerIdWithDevice(device).NotReady();
+
+				if ( GetPlayerIdWithDevice(device).ID == 0 ) {
+					p1Text.text = "Not Ready";
+				} else {
+					p2Text.text = "Not Ready";
+				}
+			} else {
+				// Remove player from that location
+				Player plr = null;
+				foreach ( Player p in GameManager.Instance.Players ) {
+					if ( p.Device == device ) {
+						plr = p;
+					}
+				}
+				GameManager.Instance.Players.Remove(plr);
 
 
-			// Unbind the device
-			UnbindDevice(device);
+				if ( GetPlayerIdWithDevice(device).ID == 0 ) {
+					player1.color = notSelectedColor;
+					p1Text.text = "Press Start";
+				} else {
+					player2.color = notSelectedColor;
+					p2Text.text = "Press Start";
+				}
+
+				// Unbind the device
+				UnbindDevice(device);
+			}
 			Debug.Log("Action 2");
 		} else if ( device.Action3.WasPressed ) {
 			GetPlayerIdWithDevice(device).isCat = !GetPlayerIdWithDevice(device).isCat;

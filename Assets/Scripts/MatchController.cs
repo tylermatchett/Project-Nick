@@ -2,15 +2,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 
 public class MatchController : MonoBehaviour {
 
     private CharacterManager characterManager;
+    public Image firstIcon1;
+    public Image firstIcon2;
+    public Image secondIcon1;
+    public Image secondIcon2;
+    public Sprite swapIcon;
+    public Text winner;
+    public GameObject KO;
 
+    private float timer = 0f;
     private int index = 0;
     public float gameTimer = 60f;
     public string playerWinner = null;
     public int round = 1;
+    private int player1win = 0;
+    private int player2win = 0;
 
     public System.Action OnRoundOver;
 	
@@ -30,16 +41,28 @@ public class MatchController : MonoBehaviour {
 	void Update ()
     {
         gameTimer -= Time.deltaTime;
+        if(KO.activeSelf)
+        {
+            timer += Time.deltaTime;
+        }
 
         if(gameTimer <= 0)
         {
             if( GameManager.Instance.Players[0].Health > GameManager.Instance.Players[1].Health)
             {
-                playerWinner = "Player1";
+                playerWinner = "Player1 Wins";
+                winner.text = playerWinner;
+                player1win++;
+                KO.SetActive(true);
+                round++;
             }
             else
             {
-                playerWinner = "Player2";
+                playerWinner = "Player2 Wins";
+                winner.text = playerWinner;
+                player2win++;
+                KO.SetActive(true);
+                round++;
             }
 
 			if (OnRoundOver != null)
@@ -52,12 +75,20 @@ public class MatchController : MonoBehaviour {
             {
                 case 0:
 
-                    playerWinner = "Player1";
+                    playerWinner = "Player1 Wins";
+                    winner.text = playerWinner;
+                    player1win++;
+                    KO.SetActive(true);
+                    round++;
                     break;
 
                 case 1:
 
-                    playerWinner = "Player2";
+                    playerWinner = "Player2 Wins";
+                    winner.text = playerWinner;
+                    player2win++;
+                    KO.SetActive(true);
+                    round++;
                     break;
             }
             round++;
@@ -65,6 +96,28 @@ public class MatchController : MonoBehaviour {
 			if ( OnRoundOver != null )
 				OnRoundOver();
 		}
+        if(timer>=3f)
+        {
+            if (player1win == 2 || player2win == 2)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelect");
+            }
+            timer = 0f;
+            GameObject [] players = GameObject.FindGameObjectsWithTag("Player");
+            for (int i = 0;i<players.Length;i++)
+            {
+                players[i].GetComponent<CharacterManager>().player.Health = 100;
+                if(i < 1)
+                {
+                    players[i].transform.position = new Vector3(-11, -5, players[i].transform.position.z);
+                }
+                else
+                {
+                    players[i].transform.position = new Vector3(10, -5, players[i].transform.position.z);
+                }
+            }
+        }
+       
 	}
 
     bool checkRoundOver()
