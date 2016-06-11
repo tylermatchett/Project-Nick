@@ -1,0 +1,103 @@
+fileFormatVersion: 2
+guid: 3a2a08374eb588d42bcbd14e64904092
+timeCreated: 1465604005
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cat_Foot_Near_0
+    21300002: Cat_Foot_Near_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.051447026, y: 0.679937}
+  spriteBorder: {x: 0, y: 568, z: 787, w: 297}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cat_Foot_Near_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 394
+        height: 210
+      alignment: 9
+      pivot: {x: 0.16398819, y: 0.7776167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 324.38867, y: -143.2995}
+        - {x: 324.38867, y: -83.2995}
+        - {x: 301.38867, y: -61.2995}
+        - {x: 267.38867, y: -31.2995}
+        - {x: 243.38866, y: -16.2995}
+        - {x: 163.38866, y: -25.2995}
+        - {x: 110.38866, y: 2.7005005}
+        - {x: 74.38866, y: 22.7005}
+        - {x: 37.388657, y: 34.7005}
+        - {x: 29.388657, y: 35.7005}
+        - {x: -25.611343, y: 35.7005}
+        - {x: -51.611343, y: 24.7005}
+        - {x: -64.61134, y: 10.7005005}
+        - {x: -64.61134, y: -81.2995}
+        - {x: -59.611343, y: -101.2995}
+        - {x: -40.611343, y: -122.2995}
+        - {x: 24.388657, y: -130.2995}
+        - {x: 280.38867, y: -163.2995}
+        - {x: 306.38867, y: -163.2995}
+        - {x: 309.38867, y: -154.2995}
+        - {x: 310.38867, y: -137.2995}
+        - {x: 322.38867, y: -151.2995}
+    - name: Cat_Foot_Near_1
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 418
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

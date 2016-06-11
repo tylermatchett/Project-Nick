@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: cca361ba6f15a7043b9d2dcb7c18eb99
+timeCreated: 1465604083
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cat_Head_0
+    21300002: Cat_Head_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 653, z: 568, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cat_Head_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 648
+        width: 438
+        height: 429
+      alignment: 9
+      pivot: {x: 0.430675, y: 0.13760924}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 204.36435, y: 5.965637}
+        - {x: 224.36435, y: 39.965637}
+        - {x: 227.36435, y: 55.965637}
+        - {x: 227.36435, y: 91.96564}
+        - {x: 223.36435, y: 109.96564}
+        - {x: 211.36435, y: 130.96564}
+        - {x: 205.36435, y: 139.96564}
+        - {x: 185.36435, y: 160.96564}
+        - {x: 177.36435, y: 208.96564}
+        - {x: 169.36435, y: 231.96564}
+        - {x: 176.36435, y: 238.96564}
+        - {x: 171.36435, y: 266.96564}
+        - {x: 154.36435, y: 287.96564}
+        - {x: 134.36435, y: 288.96564}
+        - {x: 93.36435, y: 324.96564}
+        - {x: 9.364349, y: 369.96564}
+        - {x: -4.6356506, y: 369.96564}
+        - {x: -7.6356506, y: 357.96564}
+        - {x: -7.6356506, y: 304.96564}
+        - {x: -13.635651, y: 292.96564}
+        - {x: -35.63565, y: 284.96564}
+        - {x: -79.63565, y: 292.96564}
+        - {x: -176.63565, y: 292.96564}
+        - {x: -188.63565, y: 289.96564}
+        - {x: -188.63565, y: 275.96564}
+        - {x: -137.63565, y: 177.96564}
+        - {x: -123.63565, y: 153.96564}
+        - {x: -173.63565, y: 118.96564}
+        - {x: -188.63565, y: 111.96564}
+        - {x: -188.63565, y: 108.96564}
+        - {x: -177.63565, y: 86.96564}
+        - {x: -136.63565, y: 76.96564}
+        - {x: -126.63565, y: 76.96564}
+        - {x: -108.63565, y: 96.96564}
+        - {x: -92.63565, y: 50.965637}
+        - {x: -76.63565, y: 21.965637}
+        - {x: -51.63565, y: -6.034363}
+        - {x: -29.63565, y: -23.034363}
+        - {x: 3.3643494, y: -38.034363}
+        - {x: 36.36435, y: -47.034363}
+        - {x: 51.36435, y: -49.034363}
+        - {x: 88.36435, y: -49.034363}
+        - {x: 103.36435, y: -48.034363}
+        - {x: 126.36435, y: -43.034363}
+        - {x: 156.36435, y: -31.034363}
+        - {x: 182.36435, y: -14.034363}
+    - name: Cat_Head_1
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 341
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
