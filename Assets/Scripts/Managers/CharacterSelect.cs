@@ -43,6 +43,11 @@ public class CharacterSelect : MonoBehaviour {
 			} else {
 				Debug.Log("Device already bound.");
 				GetPlayerIdWithDevice(device).IsReady();
+				if (GetPlayerIdWithDevice(device).ID == 0)
+					player1.color = selectedColor;
+				else
+					player2.color = selectedColor;
+				
 			}
 		} else if ( device.Action2.WasPressed ) {
 			if ( GetPlayerIdWithDevice(device).Ready )
@@ -57,6 +62,11 @@ public class CharacterSelect : MonoBehaviour {
 				}
 				GameManager.Instance.Players.Remove(plr);
 
+
+				if ( GetPlayerIdWithDevice(device).ID == 0 )
+					player1.color = notSelectedColor;
+				else
+					player2.color = notSelectedColor;
 
 				// Unbind the device
 				UnbindDevice(device);
