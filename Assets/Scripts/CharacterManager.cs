@@ -10,6 +10,7 @@ public enum CharacterState
 	ducking,
 	blocking,
 	punching,
+	heavyPunching,
 	kicking,
 	stunned
 };
@@ -19,6 +20,7 @@ public class CharacterManager : MonoBehaviour
 	public float moveSpeed = 5f;
 	public float kickDamage;
 	public float punchDamage;
+	public float heavyPunchDamage;
 	public float blockReduction;
 	public Vector2 direction;
 	private float stickDeadzone = 0.15f;
@@ -30,7 +32,9 @@ public class CharacterManager : MonoBehaviour
 	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f;
 	GameObject otherPlayer;
 	public bool leftPlayer;
-	
+	public int debugButton;
+	public bool debugMode = false;
+
 	void Start() {
 		actionController.OnAnimationEnd += OnAnimationEnd;
 
@@ -68,39 +72,44 @@ public class CharacterManager : MonoBehaviour
 
 	private void handleInput()
 	{
+		if(debugButton != 0)
+		{
+			Debug.Log("Button not zero");
+		}
 		//Debug.Log("Player is null: " + (player == null));
-		if ( player.Device.Action3 && state <= CharacterState.blocking)
+		if ((Input.GetKeyDown(KeyCode.X) || !debugMode && player.Device.Action3) && state <= CharacterState.blocking)
 		{
 			state = CharacterState.punching;
 			actionController.Punch();
 			unlockTimer = punchTime;
 			actionLock = true;
+			debugButton = 0;
 		}
-		else if ( player.Device.Action4 && state <= CharacterState.blocking)
+		else if ((Input.GetKeyDown(KeyCode.S) || !debugMode && player.Device.Action4) && state <= CharacterState.blocking)
 		{
 			state = CharacterState.kicking;
 			actionController.Kick();
 			unlockTimer = kickTime;
 			actionLock = true;
+			debugButton = 0;
 		}
-		else if ( player.Device.Action1 && state <= CharacterState.blocking)
+		else if((Input.GetKeyDown(KeyCode.D) || !debugMode && player.Device.Action1) && state <= CharacterState.blocking)
 		{
 			state = CharacterState.blocking;
 			actionController.Block();
+			debugButton = 0;
 		}
-		/*
-				else if (inputDevice.Action4)
-				{
-					//Secret fourth button
-				}
+		else if ((Input.GetKeyDown(KeyCode.C) || !debugMode && player.Device.Action2) && state <= CharacterState.blocking)
+		{
+			state = CharacterState.heavyPunching;
+			actionController.HeavyPunch();
+			unlockTimer = punchTime;
+			actionLock = true;
+			debugButton = 0;
+    }
 		//*/
 		else if (state <= CharacterState.moving)
 		{
-			float moveVal = 0f;
-			if (leftPlayer)
-			{
-				moveVal = 1f;
-			}
 			if (Mathf.Abs(player.Device.LeftStickX.Value) > 0.15f
 				&& (Mathf.Abs(Vector3.Distance(transform.position, otherPlayer.transform.position)) > 2f
 				|| leftPlayer && player.Device.LeftStickX.Value < 0
@@ -118,6 +127,7 @@ public class CharacterManager : MonoBehaviour
 		if (state != CharacterState.moving) {
 			direction = Vector2.zero;
 		}
+		
 	}
 
 	public void onHit()
