@@ -1,0 +1,122 @@
+fileFormatVersion: 2
+guid: c7b2a2796a697c74da2a00e9ed5299a0
+timeCreated: 1465604056
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cat_Hand_Near_0
+    21300002: Cat_Hand_Near_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.6480872, y: 0.8576248}
+  spriteBorder: {x: 534, y: 715, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cat_Hand_Near_0
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 728
+        width: 406
+        height: 352
+      alignment: 9
+      pivot: {x: 0.2008434, y: 0.5448563}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 317.45758, y: -54.78943}
+        - {x: 324.45758, y: -28.789429}
+        - {x: 324.45758, y: 45.21057}
+        - {x: 304.45758, y: 64.21057}
+        - {x: 314.45758, y: 128.21057}
+        - {x: 307.45758, y: 136.21057}
+        - {x: 209.45758, y: 160.21057}
+        - {x: 134.45758, y: 160.21057}
+        - {x: 45.45758, y: 95.21057}
+        - {x: 29.45758, y: 122.21057}
+        - {x: 25.45758, y: 127.21057}
+        - {x: 21.45758, y: 127.21057}
+        - {x: 18.45758, y: 124.21057}
+        - {x: 15.457581, y: 114.21057}
+        - {x: 0.45758057, y: 94.21057}
+        - {x: -11.542419, y: 103.21057}
+        - {x: -20.54242, y: 100.21057}
+        - {x: -18.54242, y: 88.21057}
+        - {x: -24.54242, y: 72.21057}
+        - {x: -57.54242, y: 69.21057}
+        - {x: -59.54242, y: 66.21057}
+        - {x: -60.54242, y: 62.21057}
+        - {x: -51.54242, y: 55.21057}
+        - {x: -64.54242, y: 53.21057}
+        - {x: -66.54242, y: 43.21057}
+        - {x: -55.54242, y: 25.210571}
+        - {x: -69.54242, y: 2.2105713}
+        - {x: -69.54242, y: -7.7894287}
+        - {x: -67.54242, y: -8.789429}
+        - {x: -45.54242, y: -5.7894287}
+        - {x: -66.54242, y: -79.78943}
+        - {x: -59.54242, y: -130.78943}
+        - {x: -24.54242, y: -112.78943}
+        - {x: 18.45758, y: -99.78943}
+        - {x: 115.45758, y: -160.78943}
+        - {x: 162.45758, y: -185.78943}
+        - {x: 169.45758, y: -186.78943}
+        - {x: 228.45758, y: -186.78943}
+        - {x: 257.45758, y: -168.78943}
+        - {x: 302.45758, y: -133.78943}
+        - {x: 312.45758, y: -111.78943}
+    - name: Cat_Hand_Near_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

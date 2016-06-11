@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour {
 		InputManager.OnDeviceDetached += inputDevice => DeviceDetached(inputDevice);
 	}
 
+	void Update() {
+		ProcessInput();
+	}
+
 	void ProcessInput() {
 		InputDevice device = InputManager.ActiveDevice;
 
@@ -53,7 +57,24 @@ public class GameManager : MonoBehaviour {
 			} else {
 				Debug.Log("Device already bound.");
 			}
+		} else if ( device.Action2.WasPressed ) {
+			// Remove player from that location
+			Player plr = null;
+			foreach(Player p in Players) {
+				if (p.Device == device) {
+					plr = p;
+				}
+			}
+			Players.Remove(plr);
+			
+
+			// Unbind the device
+			UnbindDevice(device);
+			Debug.Log("Action 2");
 		} else if ( device.Action3.WasPressed ) {
+			Debug.Log("Action 3");
+		} else if ( device.Action4.WasPressed ) {
+			Debug.Log("Action 4");
 		}
 	}
 
@@ -98,10 +119,16 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Detached: " + device.Name);
 
 		// UI Exit condition - a player is backing out
-		Player temp = GetPlayerIdWithDevice(device);
-		if ( temp != null ) {
-			PlayerSlots[temp.ID] = false;
+		Player plr = null;
+		foreach ( Player p in Players ) {
+			if ( p.Device == device ) {
+				plr = p;
+			}
 		}
+		Players.Remove(plr);
+
+
+		UnbindDevice(device);
 	}
 
 	Player GetPlayerIdWithDevice(InputDevice device) {

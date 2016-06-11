@@ -1,0 +1,99 @@
+fileFormatVersion: 2
+guid: 6f969942eeb32c647ba1b60443989d7d
+timeCreated: 1465604029
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cat_Hand_Far_0
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.8230088, y: 0.72042274}
+  spriteBorder: {x: 1222, y: 655, z: 0, w: 123}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Cat_Hand_Far_0
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 658
+        width: 344
+        height: 293
+      alignment: 9
+      pivot: {x: 0.17828223, y: 0.40163627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 282.6709, y: 51.320557}
+        - {x: 276.6709, y: 74.32056}
+        - {x: 258.6709, y: 97.32056}
+        - {x: 234.6709, y: 101.32056}
+        - {x: 232.6709, y: 169.32056}
+        - {x: 218.6709, y: 173.32056}
+        - {x: 193.6709, y: 175.32056}
+        - {x: 125.6709, y: 175.32056}
+        - {x: 93.6709, y: 170.32056}
+        - {x: 33.6709, y: 97.32056}
+        - {x: -3.3291016, y: 117.32056}
+        - {x: 1.6708984, y: 85.32056}
+        - {x: -26.329102, y: 99.32056}
+        - {x: -29.329102, y: 71.32056}
+        - {x: -55.3291, y: 62.320557}
+        - {x: -55.3291, y: 32.320557}
+        - {x: -49.3291, y: 29.320557}
+        - {x: -50.3291, y: 0.32055664}
+        - {x: -49.3291, y: -9.679443}
+        - {x: -37.3291, y: -41.679443}
+        - {x: -23.329102, y: -112.67944}
+        - {x: -21.329102, y: -112.67944}
+        - {x: 39.6709, y: -68.67944}
+        - {x: 97.6709, y: -96.67944}
+        - {x: 152.6709, y: -112.67944}
+        - {x: 191.6709, y: -112.67944}
+        - {x: 198.6709, y: -110.67944}
+        - {x: 246.6709, y: -80.67944}
+        - {x: 278.6709, y: -54.679443}
+        - {x: 282.6709, y: -40.679443}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
