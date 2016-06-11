@@ -61,8 +61,10 @@ public class MatchController : MonoBehaviour {
                     break;
             }
             round++;
-            OnRoundOver();
-        }
+
+			if ( OnRoundOver != null )
+				OnRoundOver();
+		}
 	}
 
     bool checkRoundOver()

@@ -7,19 +7,21 @@ public class ActionController : MonoBehaviour {
     public CharacterManager characterManager;
 	public System.Action OnAnimationEnd;
 
-	void OnCollisionEnter2D(Collision2D target)
+	void OnTriggerEnter2D(Collider2D target)
     {
 		Debug.Log("Hit player");
-        if(target.gameObject.tag == "PlayerHitBox")
-        {
-            if(characterManager.state == CharacterState.punching)
-            {
-				target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.punchDamage);
-            }
-            else if(characterManager.state == CharacterState.kicking)
-            {
-                target.gameObject.GetComponent<ActionController>().ApplyDamage(characterManager.kickDamage);
-            }
+        if(target.gameObject.tag == "PlayerHitBox") {
+			ActionController ac = target.gameObject.transform.root.GetComponent<ActionController>();
+
+			Debug.Log("Found hit area | ac:  " + ac);
+			if ( ac != null ) {
+				if ( characterManager.state == CharacterState.punching ) {
+					ac.ApplyDamage(characterManager.punchDamage);
+				} else if ( characterManager.state == CharacterState.kicking ) {
+					ac.ApplyDamage(characterManager.kickDamage);
+				}
+				Debug.Log("found AC");
+			}
         }
     }
     public void ApplyDamage(float damage)

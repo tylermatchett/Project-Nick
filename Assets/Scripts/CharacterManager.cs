@@ -68,7 +68,7 @@ public class CharacterManager : MonoBehaviour
 
 	private void handleInput()
 	{
-		Debug.Log("Player is null: " + (player == null));
+		//Debug.Log("Player is null: " + (player == null));
 		if ( player.Device.Action3 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.punching;
@@ -102,9 +102,9 @@ public class CharacterManager : MonoBehaviour
 				moveVal = 1f;
 			}
 			if (Mathf.Abs(player.Device.LeftStickX.Value) > 0.15f
-				&& (Vector3.Distance(transform.position, otherPlayer.transform.position) > 6f
+				&& (Mathf.Abs(Vector3.Distance(transform.position, otherPlayer.transform.position)) > 2f
 				|| leftPlayer && player.Device.LeftStickX.Value < 0
-				|| player.Device.LeftStickX.Value > 0))
+				|| !leftPlayer && player.Device.LeftStickX.Value > 0))
 			{
 				state = CharacterState.moving;
 				direction = new Vector2(player.Device.LeftStickX.Value, 0f);
@@ -114,6 +114,9 @@ public class CharacterManager : MonoBehaviour
 				direction = Vector2.zero;
 				state = CharacterState.idle;
 			}
+		}
+		if (state != CharacterState.moving) {
+			direction = Vector2.zero;
 		}
 	}
 
