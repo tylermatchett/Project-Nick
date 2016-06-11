@@ -15,6 +15,7 @@ public class MatchController : MonoBehaviour {
     public Text winner;
     public GameObject KO;
 
+    bool win = false;
     private float timer = 0f;
     private int index = 0;
     public float gameTimer = 60f;
@@ -22,6 +23,7 @@ public class MatchController : MonoBehaviour {
     public int round = 1;
     private int player1win = 0;
     private int player2win = 0;
+    bool roundOver = false;
 
     public System.Action OnRoundOver;
 	
@@ -49,30 +51,7 @@ public class MatchController : MonoBehaviour {
             timer += Time.deltaTime;
         }
 
-        if(gameTimer <= 0)
-        {
-            if( GameManager.Instance.Players[0].Health > GameManager.Instance.Players[1].Health)
-            {
-                playerWinner = "Player2 Wins";
-                winner.text = playerWinner;
-                player2win++;
-                KO.SetActive(true);
-                round++;
-            }
-            else
-            {
-                playerWinner = "Player1 Wins";
-                winner.text = playerWinner;
-                player1win++;
-                KO.SetActive(true);
-                round++;
-            }
-
-			if (OnRoundOver != null)
-				OnRoundOver();
-        }
-
-	    if(checkRoundOver())
+	    if(checkRoundOver() &&!roundOver)
         {
             switch(index)
             {
@@ -83,6 +62,7 @@ public class MatchController : MonoBehaviour {
                     player2win++;
                     KO.SetActive(true);
                     round++;
+                    roundOver = true;
                     break;
 
                 case 1:
@@ -92,17 +72,35 @@ public class MatchController : MonoBehaviour {
                     player1win++;
                     KO.SetActive(true);
                     round++;
+                    roundOver = true;
                     break;
             }
             round++;
-
+            if(player1win>0)
+            {
+                firstIcon1.sprite = swapIcon;
+            }
+            if(player1win>1)
+            {
+                secondIcon1.sprite = swapIcon;
+            }
+            if(player2win>0)
+            {
+                firstIcon2.sprite = swapIcon;
+            }
+            if(player2win>1)
+            {
+                secondIcon2.sprite = swapIcon;
+            }
 			if ( OnRoundOver != null )
 				OnRoundOver();
 		}
         if(timer>=3f)
         {
-            if (player1win == 2 || player2win == 2)
+            Debug.Log(player1win + "," + player2win);
+            if (player1win > 1 || player2win > 1)
             {
+                Debug.Log("I Win");
                 UnityEngine.SceneManagement.SceneManager.LoadScene("CharacterSelect");
             }
             timer = 0f;
@@ -120,6 +118,7 @@ public class MatchController : MonoBehaviour {
                 }
             }
 			KO.SetActive(false);
+            roundOver = false;
         }
        
 	}
@@ -134,7 +133,10 @@ public class MatchController : MonoBehaviour {
                 return (true);
             }
         }
-
+        if(gameTimer<=0)
+        {
+            return true;
+        }
         return (false);
     }
 }
