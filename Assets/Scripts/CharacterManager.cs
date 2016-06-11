@@ -97,14 +97,11 @@ public class CharacterManager : MonoBehaviour
 			unlockTimer = kickTime;
 			actionLock = true;
 			debugButton = 0;
-		}
-		else if((Input.GetKeyDown(KeyCode.D) || !debugMode && player.Device.Action1) && state <= CharacterState.blocking)
-		{
+		} else if ( (Input.GetKeyDown(KeyCode.D) || !debugMode && player.Device.Action1) && state <= CharacterState.blocking ) {
 			state = CharacterState.blocking;
 			actionController.Block();
 			debugButton = 0;
-		}
-		else if ((Input.GetKeyDown(KeyCode.C) || !debugMode && player.Device.Action2) && state <= CharacterState.blocking)
+		} else if ((Input.GetKeyDown(KeyCode.C) || !debugMode && player.Device.Action2) && state <= CharacterState.blocking)
 		{
 			state = CharacterState.heavyPunching;
 			actionController.HeavyPunch();
@@ -132,6 +129,8 @@ public class CharacterManager : MonoBehaviour
 		if (state != CharacterState.moving) {
 			direction = Vector2.zero;
 		}
+		if ( player.Device.Action1.WasReleased && state <= CharacterState.blocking )
+			state = CharacterState.idle;
 		
 	}
 
