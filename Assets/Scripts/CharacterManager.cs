@@ -12,6 +12,7 @@ public enum CharacterState
 	punching,
 	heavyPunching,
 	kicking,
+	dodge,
 	stunned
 };
 
@@ -29,11 +30,13 @@ public class CharacterManager : MonoBehaviour
 	public ActionController actionController;
 	private float unlockTimer;
 	private bool actionLock;
-	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f;
+	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f, dodgeTime = 0.25f;
 	GameObject otherPlayer;
 	public bool leftPlayer;
 	public int debugButton;
 	public bool debugMode = false;
+
+	float dodgeTimer = 0f;
 
 	void Start() {
 		actionController.OnAnimationEnd += OnAnimationEnd;
@@ -69,6 +72,21 @@ public class CharacterManager : MonoBehaviour
 			actionController.anim.SetBool("Guarding", true);
 		else
 			actionController.anim.SetBool("Guarding", false);
+
+		if ( state == CharacterState.dodge ) {
+			dodgeTimer -= Time.deltaTime;
+
+			if (leftPlayer)
+				direction = new Vector2(-1f, 0f);
+			else
+				direction = new Vector2(1f, 0f);
+
+			if ( dodgeTimer <= 0f ) {
+				dodgeTimer = 0f;
+
+				state = CharacterState.idle;
+			}
+		}
 	}
 
 	void OnAnimationEnd() {
@@ -92,11 +110,12 @@ public class CharacterManager : MonoBehaviour
 		}
 		else if ((Input.GetKeyDown(KeyCode.S) || !debugMode && player.Device.Action2) && state <= CharacterState.blocking)
 		{
-			state = CharacterState.kicking;
+			/*state = CharacterState.kicking;
 			actionController.Kick();
-			unlockTimer = kickTime;
+			debugButton = 0;*/
+			state = CharacterState.dodge;
+			dodgeTimer = dodgeTime;
 			actionLock = true;
-			debugButton = 0;
 		} else if ( (Input.GetKeyDown(KeyCode.D) || !debugMode && player.Device.Action1) && state <= CharacterState.blocking ) {
 			state = CharacterState.blocking;
 			actionController.Block();

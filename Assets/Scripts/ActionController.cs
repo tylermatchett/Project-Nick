@@ -9,28 +9,20 @@ public class ActionController : MonoBehaviour
 	public CharacterManager characterManager;
 	public System.Action OnAnimationEnd;
 	public float blockAnimTimer;
-
-<<<<<<< HEAD
+	
     List<GameObject> goList;
 
-    void Start()
+	void Start()
     {
         goList = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
     }
 
-    void OnTriggerEnter2D(Collider2D target)
-=======
-	public GameObject effect1;
-	public GameObject effect2;
-	public GameObject effect3;
-
 	void OnTriggerEnter2D(Collider2D target)
->>>>>>> origin/master
 	{
 		Debug.Log("Hit player");
 		if (target.gameObject.tag == "PlayerHitBox")
 		{
-			Destroy((GameObject) Instantiate(effect1, target.transform.position, Quaternion.identity), 0.25f);
+			// screen shake
 			ActionController ac = target.gameObject.transform.root.GetComponent<ActionController>();
 
 			Debug.Log("Found hit area | ac:  " + ac);
@@ -106,10 +98,6 @@ public class ActionController : MonoBehaviour
 	}
 	public void Block()
 	{
-		//anim.speed = 2.5f;
-		//anim.Play("Block");
-		//blockAnimTimer = 0;
-		//Invoke("animationend", 0.75f / anim.speed);
 	}
 	public void Jump()
 	{
