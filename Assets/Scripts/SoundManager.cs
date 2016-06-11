@@ -60,7 +60,7 @@ public class SoundManager : MonoBehaviour {
 	
 	}
 
-    void Play(SoundType sound)
+    public void Play(SoundType sound)
     {
         switch(sound)
         {
@@ -146,10 +146,5 @@ public class SoundManager : MonoBehaviour {
                 }
                 break;
         }
-    }
-    [ContextMenu("text audio")]
-    void testPlay()
-    {
-        Play(SoundType.MenuTick);
     }
 }
