@@ -6,6 +6,10 @@ public class CharacterSelectAdvance : MonoBehaviour {
 
 	public Text txtReadyCount;
 
+	void Start() {
+		GameManager.Instance.Players.Clear();
+	}
+
 	void Update () {
 		int readyCount = 0;
 
