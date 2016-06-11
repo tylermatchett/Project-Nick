@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour {
 
             case SoundType.HitCat:
                 audioSource3.clip = HitCat;
-                audioSource.Play();
+                audioSource3.Play();
                 break;
 
             case SoundType.HitWhoosh:
@@ -93,12 +93,12 @@ public class SoundManager : MonoBehaviour {
 
             case SoundType.DeadDog:
                 audioSource3.clip = DeadDog;
-                audioSource.Play();
+                audioSource3.Play();
                 break;
 
             case SoundType.DeadCat:
                 audioSource3.clip = DeadCat;
-                audioSource.Play();
+                audioSource3.Play();
                 break;
 
             case SoundType.CharacterSelect:
@@ -108,7 +108,7 @@ public class SoundManager : MonoBehaviour {
 
             case SoundType.TimerTick:
                 audioSource4.clip = TimerTick;
-                audioSource.Play();
+                audioSource4.Play();
                 break;
 
             case SoundType.MenuTick:
@@ -118,12 +118,12 @@ public class SoundManager : MonoBehaviour {
 
             case SoundType.MenuMusic:
                 audioSource2.clip = MenuMusic;
-                audioSource.Play();
+                audioSource2.Play();
                 break;
 
             case SoundType.GameMusic:
                 audioSource2.clip = GameMusic;
-                audioSource.Play();
+                audioSource2.Play();
                 break;
 
             case SoundType.Shuffle:
@@ -132,22 +132,22 @@ public class SoundManager : MonoBehaviour {
                 switch (shuffleRand)
                 {
                     case 1:
-                        audioSource.clip = Shuffle1;
+                        audioSource5.clip = Shuffle1;
                         audioSource5.Play();
                         break;
 
                     case 2:
-                        audioSource.clip = Shuffle2;
+                        audioSource5.clip = Shuffle2;
                         audioSource5.Play();
                         break;
 
                     case 3:
-                        audioSource.clip = Shuffle3;
+                        audioSource5.clip = Shuffle3;
                         audioSource5.Play();
                         break;
 
                     case 4:
-                        audioSource.clip = Shuffle4;
+                        audioSource5.clip = Shuffle4;
                         audioSource5.Play();
                         break;
                 }
