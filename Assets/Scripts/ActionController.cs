@@ -36,6 +36,7 @@ public class ActionController : MonoBehaviour
 	}
 	public void ApplyDamage(float damage)
 	{
+		anim.Play("OnHit");
 		Debug.Log("I'm hit broski");
 		if (characterManager.state == CharacterState.blocking)
 		{
