@@ -7,6 +7,11 @@ using UnityEngine.UI;
 public class MatchController : MonoBehaviour {
 
     private CharacterManager characterManager;
+    public Image firstIcon1;
+    public Image firstIcon2;
+    public Image secondIcon1;
+    public Image secondIcon2;
+    public Sprite swapIcon;
     public Text winner;
     public GameObject KO;
 
@@ -49,6 +54,7 @@ public class MatchController : MonoBehaviour {
                 winner.text = playerWinner;
                 player1win++;
                 KO.SetActive(true);
+                round++;
             }
             else
             {
@@ -56,6 +62,7 @@ public class MatchController : MonoBehaviour {
                 winner.text = playerWinner;
                 player2win++;
                 KO.SetActive(true);
+                round++;
             }
 
 			if (OnRoundOver != null)
@@ -72,6 +79,7 @@ public class MatchController : MonoBehaviour {
                     winner.text = playerWinner;
                     player1win++;
                     KO.SetActive(true);
+                    round++;
                     break;
 
                 case 1:
@@ -80,6 +88,7 @@ public class MatchController : MonoBehaviour {
                     winner.text = playerWinner;
                     player2win++;
                     KO.SetActive(true);
+                    round++;
                     break;
             }
             round++;
