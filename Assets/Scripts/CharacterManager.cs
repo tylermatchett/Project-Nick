@@ -64,7 +64,12 @@ public class CharacterManager : MonoBehaviour
 		{
 			actionLock = false;
 		}
-  }
+
+		if ( state == CharacterState.blocking )
+			actionController.anim.SetBool("Guarding", true);
+		else
+			actionController.anim.SetBool("Guarding", false);
+	}
 
 	void OnAnimationEnd() {
 		state = CharacterState.idle;
