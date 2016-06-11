@@ -30,7 +30,7 @@ public class CharacterManager : MonoBehaviour
 	public ActionController actionController;
 	private float unlockTimer;
 	private bool actionLock;
-	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f, dodgeTime = 0.25f;
+	private float punchTime = 0.2f, bigHit = 0.4f, stunTime = 0.2f, dodgeTime = 0.25f;
 	GameObject otherPlayer;
 	public bool leftPlayer;
 	public int debugButton;
@@ -60,7 +60,8 @@ public class CharacterManager : MonoBehaviour
 
 	void Update ()
 	{
-		if (player != null)
+		unlockTimer -= Time.deltaTime;
+		if (player != null && !actionLock)
 			handleInput();
 
 		if(unlockTimer < 0 && actionLock)
@@ -79,7 +80,7 @@ public class CharacterManager : MonoBehaviour
 			if (leftPlayer)
 				direction = new Vector2(-3f, 0f);
 			else
-				direction = new Vector2(1f, 0f);
+				direction = new Vector2(3f, 0f);
 
 			if ( dodgeTimer <= 0f ) {
 				dodgeTimer = 0f;
@@ -124,7 +125,7 @@ public class CharacterManager : MonoBehaviour
 		{
 			state = CharacterState.heavyPunching;
 			actionController.HeavyPunch();
-			unlockTimer = punchTime;
+			unlockTimer = bigHit;
 			actionLock = true;
 			debugButton = 0;
     }

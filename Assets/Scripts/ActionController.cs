@@ -24,8 +24,7 @@ public class ActionController : MonoBehaviour
 		{
 			// screen shake
 			ActionController ac = target.gameObject.transform.root.GetComponent<ActionController>();
-
-			Debug.Log("Found hit area | ac:  " + ac);
+			
 			if (ac != null)
 			{
 				if (characterManager.state == CharacterState.punching)
@@ -40,14 +39,12 @@ public class ActionController : MonoBehaviour
 				{
 					ac.ApplyDamage(characterManager.heavyPunchDamage);
 				}
-				Debug.Log("found AC");
 			}
 		}
 	}
 	public void ApplyDamage(float damage)
 	{
 		anim.Play("OnHit");
-		Debug.Log("I'm hit broski");
 		if (characterManager.state == CharacterState.blocking)
 		{
 			characterManager.player.Health -= damage * characterManager.blockReduction;

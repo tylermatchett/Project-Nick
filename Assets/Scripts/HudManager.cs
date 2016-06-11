@@ -16,8 +16,8 @@ public class HudManager : MonoBehaviour {
 	void Update () {
         targetScale = GameManager.Instance.Players[0].Health / 100f;
         targetScale2 = GameManager.Instance.Players[1].Health / 100f;
-        t_scale = Mathf.Lerp(t_scale, targetScale, Time.deltaTime);
-        t_scale2 = Mathf.Lerp(t_scale2, targetScale2, Time.deltaTime);
+        t_scale = Mathf.Lerp(t_scale, targetScale, Time.deltaTime * 5f);
+        t_scale2 = Mathf.Lerp(t_scale2, targetScale2, Time.deltaTime * 5f);
 
 		if ( t_scale < 0f )
 			t_scale = 0f;
