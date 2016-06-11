@@ -54,7 +54,7 @@ public class ActionController : MonoBehaviour
 		{
 			characterManager.player.Health -= damage;
             SoundManager.Instance.Play(SoundType.HitContact);
-            if (goList[1] == gameObject)
+            if (goList[1].name == gameObject.name)
             {
                 SoundManager.Instance.Play(SoundType.HitCat);
             }

@@ -18,7 +18,6 @@ public class MatchController : MonoBehaviour {
     bool win = false;
     private float timer = 0f;
     private int index = 0;
-    public float gameTimer = 60f;
     public string playerWinner = null;
     public int round = 1;
     private int player1win = 0;
@@ -45,7 +44,6 @@ public class MatchController : MonoBehaviour {
 	
 	void Update ()
     {
-        gameTimer -= Time.deltaTime;
         if(KO.activeSelf)
         {
             timer += Time.deltaTime;
@@ -132,10 +130,6 @@ public class MatchController : MonoBehaviour {
                 index = i;
                 return (true);
             }
-        }
-        if(gameTimer<=0)
-        {
-            return true;
         }
         return (false);
     }
