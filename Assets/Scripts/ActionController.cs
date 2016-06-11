@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class ActionController : MonoBehaviour
 {
@@ -8,7 +10,14 @@ public class ActionController : MonoBehaviour
 	public System.Action OnAnimationEnd;
 	public float blockAnimTimer;
 
-	void OnTriggerEnter2D(Collider2D target)
+    List<GameObject> goList;
+
+    void Start()
+    {
+        goList = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
+    }
+
+    void OnTriggerEnter2D(Collider2D target)
 	{
 		Debug.Log("Hit player");
 		if (target.gameObject.tag == "PlayerHitBox")
@@ -47,7 +56,7 @@ public class ActionController : MonoBehaviour
 		{
 			characterManager.player.Health -= damage;
             SoundManager.Instance.Play(SoundType.HitContact);
-            if (characterManager.player.isCat == true)
+            if (goList[1] == gameObject)
             {
                 SoundManager.Instance.Play(SoundType.HitCat);
             }

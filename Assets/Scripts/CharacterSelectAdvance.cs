@@ -8,6 +8,7 @@ public class CharacterSelectAdvance : MonoBehaviour {
 
 	void Start() {
 		GameManager.Instance.Players.Clear();
+        SoundManager.Instance.Play(SoundType.MenuMusic);
 	}
 
 	void Update () {

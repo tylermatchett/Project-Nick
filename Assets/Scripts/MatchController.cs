@@ -40,7 +40,7 @@ public class MatchController : MonoBehaviour {
 			}
 		}
 
-
+        SoundManager.Instance.Play(SoundType.GameMusic);
 	}
 	
 	void Update ()
