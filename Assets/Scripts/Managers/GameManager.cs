@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<Player> Players = new List<Player>();
 	List<InputDevice> BoundDevices = new List<InputDevice>();
-	bool[] PlayerSlots = new bool[]{ false, false, false, false };
+	bool[] PlayerSlots = new bool[]{ false, false };
 
 	void Start() {
 		Debug.Log("[GameManager] Start");
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
 
 					Player NewPlayer = new Player(GetNextPlayerIndex(), device);
 					// Set the new player to the UI stuff and game manager
+					NewPlayer.IsReady();
 					Players.Add(NewPlayer);
 
 					Debug.Log("New player with an id of " + NewPlayer.ID + " created with " + device + " device.");
