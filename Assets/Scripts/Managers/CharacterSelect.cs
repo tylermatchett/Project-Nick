@@ -53,6 +53,8 @@ public class CharacterSelect : MonoBehaviour {
 			UnbindDevice(device);
 			Debug.Log("Action 2");
 		} else if ( device.Action3.WasPressed ) {
+			GetPlayerIdWithDevice(device).isCat = !GetPlayerIdWithDevice(device).isCat;
+			Debug.Log("I'm changing my race!");
 			Debug.Log("Action 3");
 		} else if ( device.Action4.WasPressed ) {
 			Debug.Log("Action 4");
