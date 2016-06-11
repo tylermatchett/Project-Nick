@@ -4,7 +4,7 @@ using System.Collections;
 public class ActionController : MonoBehaviour {
 
     public Animator anim;
-    private CharacterManager characterManager;
+    public CharacterManager characterManager;
 
     void OnCollisionEnter2D(Collision2D target)
     {
@@ -64,4 +64,8 @@ public class ActionController : MonoBehaviour {
     {
         anim.Play("Jump");
     }
+
+	void Update() {
+		transform.position += new Vector3(characterManager.direction.x, transform.position.y, transform.position.z) * characterManager.moveSpeed;
+	}
 }

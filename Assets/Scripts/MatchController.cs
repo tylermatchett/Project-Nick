@@ -18,7 +18,12 @@ public class MatchController : MonoBehaviour {
     {
 		List<GameObject> goList = GameObject.FindGameObjectsWithTag("Player").ToList<GameObject>();
 		for ( int i = 0; i < goList.Count(); i++ ) {
-			goList[i].GetComponent<CharacterManager>().player = GameManager.Instance.Players[i];
+			Debug.Log("Loop: " + i);
+			CharacterManager cm = goList[i].GetComponent<CharacterManager>();
+			if ( GameManager.Instance.Players.Count > i && cm != null ) {
+				Debug.Log("is CM null: " + (goList[i].GetComponent<CharacterManager>() == null));
+				cm.player = GameManager.Instance.Players[i];
+			}
 		}
 	}
 	

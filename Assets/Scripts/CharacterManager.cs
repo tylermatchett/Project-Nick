@@ -23,29 +23,20 @@ public class CharacterManager : MonoBehaviour
 	public Vector2 direction;
 	private float stickDeadzone = 0.15f;
 	public CharacterState state = CharacterState.idle;
-	public Player player;
-	private ActionController actionController;
+	public Player player = null;
+	public ActionController actionController;
 	private float unlockTimer;
 	private bool actionLock;
 	private float punchTime = 0.3f, kickTime = 0.4f, stunTime = 0.2f;
-
-	//private ActionController;
-
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
 	
-	// Update is called once per frame
+	void Start() {
+	}
+
 	void Update ()
 	{
-		InputDevice inputDevice = player.Device;
-
-//		if (!actionLock)
-	//	{
-			handleInput(inputDevice);
-		//}
+		Debug.Log("Player is not null: " + (player != null));
+		if (player != null)
+			handleInput();
 
 		if(unlockTimer < 0 && actionLock)
 		{
@@ -53,23 +44,23 @@ public class CharacterManager : MonoBehaviour
 		}
   }
 
-	private void handleInput(InputDevice inputDevice)
+	private void handleInput()
 	{
-		if (inputDevice.Action1 && state <= CharacterState.blocking)
+		if ( player.Device.Action1 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.punching;
 			actionController.Punch();
 			unlockTimer = punchTime;
 			actionLock = true;
 		}
-		else if (inputDevice.Action2 && state <= CharacterState.blocking)
+		else if ( player.Device.Action2 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.kicking;
 			actionController.Kick();
 			unlockTimer = kickTime;
 			actionLock = true;
 		}
-		else if (inputDevice.Action3 && state <= CharacterState.blocking)
+		else if ( player.Device.Action3 && state <= CharacterState.blocking)
 		{
 			state = CharacterState.blocking;
 			actionController.Block();
@@ -82,10 +73,10 @@ public class CharacterManager : MonoBehaviour
 		//*/
 		else if (state <= CharacterState.moving)
 		{
-			if (Mathf.Abs(inputDevice.LeftStickX) > stickDeadzone)
+			if ( player.Device.Direction.Vector.magnitude > stickDeadzone)
 			{
 				state = CharacterState.moving;
-				direction = inputDevice.Direction.Vector.normalized;
+				direction = player.Device.Direction.Vector.normalized;
 			}
 			else
 			{
